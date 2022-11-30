@@ -19,6 +19,22 @@ namespace functionofpolynom
             InitializeComponent();
         }
 
+
+
+        private void btn_Anzahleingeben_Click(object sender, EventArgs e)
+        {
+            GridView1.Rows.Clear();
+            if (textBox_Anzahl.Text != null)
+            {
+                AnzalderWerten = int.Parse(textBox_Anzahl.Text);
+                for (int i = 0; i < AnzalderWerten; i++)
+                {
+                    this.GridView1.Rows.Add();
+                }
+
+            }
+        }
+
         private void btn_getPolynom_Click(object sender, EventArgs e)
         {
             
@@ -34,26 +50,13 @@ namespace functionofpolynom
 
 
             rechnungvonzahler rechnen= new rechnungvonzahler();
-           List <double> Ergebnis = rechnen.listvonXwerten(XWerten);
-            foreach (var item in Ergebnis)
-            {
-                richTextBoxPolynoem.Text= item.ToString();  
-            }
+            rechnen.LagrangeMethode(XWerten, YWerten);
+            richTextBoxPolynoem.Text = rechnen.erg();
+            
+          
         }
 
-        private void btn_Anzahleingeben_Click(object sender, EventArgs e)
-        {
-            GridView1.Rows.Clear();
-            if (textBox_Anzahl.Text != null)
-            {
-                AnzalderWerten = int.Parse(textBox_Anzahl.Text);
-                for (int i = 0; i < AnzalderWerten; i++)
-                {
-                    this.GridView1.Rows.Add();
-                }
 
-            }
-        }
 
 
     }
