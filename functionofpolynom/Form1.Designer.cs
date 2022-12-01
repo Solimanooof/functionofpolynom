@@ -35,6 +35,7 @@
             this.richTextBoxPolynoem = new System.Windows.Forms.RichTextBox();
             this.textBox_Anzahl = new System.Windows.Forms.TextBox();
             this.btn_Anzahleingeben = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.GridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,11 +46,12 @@
             this.GridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.X,
             this.Y});
-            this.GridView1.Location = new System.Drawing.Point(206, 49);
+            this.GridView1.Location = new System.Drawing.Point(180, 37);
+            this.GridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GridView1.Name = "GridView1";
             this.GridView1.RowHeadersWidth = 51;
             this.GridView1.RowTemplate.Height = 29;
-            this.GridView1.Size = new System.Drawing.Size(432, 303);
+            this.GridView1.Size = new System.Drawing.Size(378, 227);
             this.GridView1.TabIndex = 0;
             // 
             // X
@@ -68,52 +70,66 @@
             // 
             // btn_getPolynom
             // 
-            this.btn_getPolynom.Location = new System.Drawing.Point(274, 406);
+            this.btn_getPolynom.Location = new System.Drawing.Point(240, 304);
+            this.btn_getPolynom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_getPolynom.Name = "btn_getPolynom";
-            this.btn_getPolynom.Size = new System.Drawing.Size(261, 29);
+            this.btn_getPolynom.Size = new System.Drawing.Size(228, 22);
             this.btn_getPolynom.TabIndex = 1;
-            this.btn_getPolynom.Text = "Berechnen";
+            this.btn_getPolynom.Text = "Langrange Berechnen";
             this.btn_getPolynom.UseVisualStyleBackColor = true;
             this.btn_getPolynom.Click += new System.EventHandler(this.btn_getPolynom_Click);
             // 
             // richTextBoxPolynoem
             // 
-            this.richTextBoxPolynoem.Location = new System.Drawing.Point(206, 468);
+            this.richTextBoxPolynoem.Location = new System.Drawing.Point(180, 351);
+            this.richTextBoxPolynoem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextBoxPolynoem.Name = "richTextBoxPolynoem";
-            this.richTextBoxPolynoem.Size = new System.Drawing.Size(432, 183);
+            this.richTextBoxPolynoem.Size = new System.Drawing.Size(378, 138);
             this.richTextBoxPolynoem.TabIndex = 2;
             this.richTextBoxPolynoem.Text = "";
             // 
             // textBox_Anzahl
             // 
-            this.textBox_Anzahl.Location = new System.Drawing.Point(681, 92);
+            this.textBox_Anzahl.Location = new System.Drawing.Point(596, 69);
+            this.textBox_Anzahl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox_Anzahl.Name = "textBox_Anzahl";
-            this.textBox_Anzahl.Size = new System.Drawing.Size(145, 27);
+            this.textBox_Anzahl.Size = new System.Drawing.Size(237, 23);
             this.textBox_Anzahl.TabIndex = 3;
             // 
             // btn_Anzahleingeben
             // 
-            this.btn_Anzahleingeben.Location = new System.Drawing.Point(682, 150);
+            this.btn_Anzahleingeben.Location = new System.Drawing.Point(608, 112);
+            this.btn_Anzahleingeben.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Anzahleingeben.Name = "btn_Anzahleingeben";
-            this.btn_Anzahleingeben.Size = new System.Drawing.Size(144, 29);
+            this.btn_Anzahleingeben.Size = new System.Drawing.Size(215, 22);
             this.btn_Anzahleingeben.TabIndex = 4;
             this.btn_Anzahleingeben.Text = "Anzahl eingeben";
             this.btn_Anzahleingeben.UseVisualStyleBackColor = true;
             this.btn_Anzahleingeben.Click += new System.EventHandler(this.btn_Anzahleingeben_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(38, 415);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 15);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Basis von Lagrange";
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1068, 761);
+            this.ClientSize = new System.Drawing.Size(967, 735);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_Anzahleingeben);
             this.Controls.Add(this.textBox_Anzahl);
             this.Controls.Add(this.richTextBoxPolynoem);
             this.Controls.Add(this.btn_getPolynom);
             this.Controls.Add(this.GridView1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";
-            
             ((System.ComponentModel.ISupportInitialize)(this.GridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -129,5 +145,6 @@
         private System.Windows.Forms.RichTextBox richTextBoxPolynoem;
         private System.Windows.Forms.TextBox textBox_Anzahl;
         private System.Windows.Forms.Button btn_Anzahleingeben;
+        private System.Windows.Forms.Label label1;
     }
 }

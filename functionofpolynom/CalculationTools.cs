@@ -6,6 +6,15 @@ namespace functionofpolynom
 {
     public class rechnungvonzahler
     {
+        
+
+
+        double[] shouldbelastissue;
+        public void addthelengthforlastarray (int num)
+        {
+            shouldbelastissue = new double[num];
+        }
+
 
         public List<double> xlistwerten= new List<double>();
         public double[] aktuellxWert;
@@ -34,24 +43,26 @@ namespace functionofpolynom
        
         public void LagrangeMethode (double[] xWerten, double [] yWerten)               //versuche das für lagrange anzupassen
         {
-            double XiminusandereX=1;
-            double YdurchdenNenner=1;
+            double XiminusandereX;
+            double YdurchdenNenner=0;
            
             
             // allgemeines For 
             for (int i = 0; i < xWerten.Length; i++)
             {
+                XiminusandereX = 1;
                 // dieses For ist für subrahieren Xi minus andere X (also hier sind alles nummer weerden berechenet
                 for (int t = 0; t < xWerten.Length; t++)
                 {
                     
                     if (t != i)
                     {
-                        if (xWerten[t] != xWerten[i])
+                        if (xWerten[t] != xWerten[i] && xWerten[t]!=0 && xWerten[i]!=0)
                         { XiminusandereX *= xWerten[i] - xWerten[t]; }
                         else
                         {
-                           // muss hier eine Nachricht vorkommen, um zu erklären, dass ist nicht mögelich wiederholte Nummer, weiß nicht, warum messagebox nicht vorhanden
+                            // muss hier eine Nachricht vorkommen, um zu erklären, dass ist nicht mögelich wiederholte Nummer, 
+                            throw new Exception("XWerten darf nicht wiederholt werden");
                         }
 
                     }
@@ -73,18 +84,16 @@ namespace functionofpolynom
                             if (k != j && k!=i)
                             {
                                 aktuellxWert = new double[] { 1, (xWerten[k] * -1) };
-                                PolynomMultiplicator(polynomialProduct, aktuellxWert);          // hier wird funktion der Multiplikation
+                                PolynomMultiplicator(polynomialProduct, aktuellxWert);         // hier wird funktion der Multiplikation
+                               
                             }
                         }
 
                         //diese Array, damit die ergebnis von [Yi durch die (xi- alle andere x)] und polymial multiplikation 
-                     double [] temp= new double[polynomialProduct.Length];
-                        for (int s = 0; s < polynomialProduct.Length; s++)
-                        {
-                            temp[s] =YdurchdenNenner * polynomialProduct[s];
-                        }
+                        double []temp= new double[polynomialProduct.Length];
+                        for (int k = 0;k < polynomialProduct.Length ; k++) temp[k] = polynomialProduct[k]*YdurchdenNenner;
                         SpeicherAllePolynomials(temp);
-                         j =xWerten.Length-1;
+                        j =xWerten.Length-1;
                     }
                 }       
             }
@@ -92,16 +101,18 @@ namespace functionofpolynom
         }
 
 
+       
+
         // ab hier versuche die Datein zu zeigen aber alles, was lagrange angeht ist oben-------------------------------------------
 
         string result = string.Empty;
-        double[] shouldbelastissue;
+       
         
         //diese Funktion ist für sammlungen alles Polynomen bzw. L0 +L1 .....+Ln
         public  void SpeicherAllePolynomials (double []PlynomialProd)
         {
            
-           shouldbelastissue=new double [PlynomialProd.Length];
+           
             for (int i = 0; i < PlynomialProd.Length; i++)
             {
                 shouldbelastissue [i] += PlynomialProd[i];                
@@ -113,12 +124,21 @@ namespace functionofpolynom
             int v = shouldbelastissue.Length - 1;
             for (int i = 0; i < shouldbelastissue.Length; i++)
             {
-                result += $"Basis ist = {shouldbelastissue[i]} + X^ {v} + ";
+                if (v==0)
+                {
+                    result += $"{shouldbelastissue[i]} . ";
+                }
+                else
+                {
+                    result += $"  {shouldbelastissue[i]} x^{v} + ";
+
+                }
                 v--;
 
             }
+            string res ="P(X) = " + result;
 
-            return result;
+            return res;
         }
             
     }

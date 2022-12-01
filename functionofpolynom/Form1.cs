@@ -23,35 +23,53 @@ namespace functionofpolynom
 
         private void btn_Anzahleingeben_Click(object sender, EventArgs e)
         {
-            GridView1.Rows.Clear();
-            if (textBox_Anzahl.Text != null)
+            try
             {
-                AnzalderWerten = int.Parse(textBox_Anzahl.Text);
-                for (int i = 0; i < AnzalderWerten; i++)
+                GridView1.Rows.Clear();
+                if (textBox_Anzahl.Text != null)
                 {
-                    this.GridView1.Rows.Add();
-                }
+                    AnzalderWerten = int.Parse(textBox_Anzahl.Text);
+                    for (int i = 0; i < AnzalderWerten; i++)
+                    {
+                        this.GridView1.Rows.Add();
+                    }
 
+                }
             }
+            catch (Exception)
+            {
+
+                textBox_Anzahl.Text = "hier nur natürliche Zahl eingebe";
+            }
+
         }
 
         private void btn_getPolynom_Click(object sender, EventArgs e)
         {
-            
-            double[] XWerten = new double[AnzalderWerten];
-            double[] YWerten = new double[AnzalderWerten];
-            int i = 0;
-            foreach (DataGridViewRow row in GridView1.Rows)
+            try
             {
-                XWerten[i] = double.Parse(row.Cells[0].Value.ToString());
-                YWerten[i] = double.Parse(row.Cells[1].Value.ToString());
-                i++;
+                double[] XWerten = new double[AnzalderWerten];
+                double[] YWerten = new double[AnzalderWerten];
+                int i = 0;
+                foreach (DataGridViewRow row in GridView1.Rows)
+                {
+                    XWerten[i] = double.Parse(row.Cells[0].Value.ToString());
+                    YWerten[i] = double.Parse(row.Cells[1].Value.ToString());
+                    i++;
+                }
+
+
+                rechnungvonzahler rechnen = new rechnungvonzahler();
+                rechnen.addthelengthforlastarray(AnzalderWerten);
+                rechnen.LagrangeMethode(XWerten, YWerten);
+                richTextBoxPolynoem.Text = rechnen.erg();
+            }
+            catch (Exception)
+            {
+
+                richTextBoxPolynoem.Text = "bitte nur nummer eingeben, und keine wiederholten werten bei X!";
             }
 
-
-            rechnungvonzahler rechnen= new rechnungvonzahler();
-            rechnen.LagrangeMethode(XWerten, YWerten);
-            richTextBoxPolynoem.Text = rechnen.erg();
             
           
         }
