@@ -9,7 +9,9 @@ namespace functionofpolynom
         
 
 
-        double[] shouldbelastissue;
+        double[] shouldbelastissue; // in dieser Array wird die letzte Ergebnis addiert und gespeichert
+
+        // hier wird die Lenght von dem Array
         public void addthelengthforlastarray (int num)
         {
             shouldbelastissue = new double[num];
@@ -127,6 +129,11 @@ namespace functionofpolynom
                 if (v==0)
                 {
                     result += $"{shouldbelastissue[i]} . ";
+                }
+                else if(v==1)
+                {
+                    result += $"  {shouldbelastissue[i]} x + ";
+
                 }
                 else
                 {
