@@ -63,6 +63,11 @@ namespace functionofpolynom
                 rechnen.addthelengthforlastarray(AnzalderWerten);
                 rechnen.LagrangeMethode(XWerten, YWerten);
                 richTextBoxPolynoem.Text = rechnen.erg();
+
+
+               
+                
+
             }
             catch (Exception)
             {
@@ -74,8 +79,36 @@ namespace functionofpolynom
           
         }
 
+        private void btn_Newton_berechnen_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                double[] XWerten = new double[AnzalderWerten];
+                double[] YWerten = new double[AnzalderWerten];
+                int i = 0;
+                foreach (DataGridViewRow row in GridView1.Rows)
+                {
+                    XWerten[i] = double.Parse(row.Cells[0].Value.ToString());
+                    YWerten[i] = double.Parse(row.Cells[1].Value.ToString());
+                    i++;
+                }
 
 
 
+
+                Newton newton = new Newton();
+                newton.addthelengthforlastarray(AnzalderWerten);
+                newton.Newtonintepolation(XWerten, YWerten);
+                richTextBoxNewton.Text = newton.erg(YWerten);
+
+
+
+            }
+            catch (Exception)
+            {
+
+                richTextBoxPolynoem.Text = "bitte nur nummer eingeben, und keine wiederholten werten bei X!";
+            }
+        }
     }
 }
