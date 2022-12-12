@@ -59,7 +59,7 @@ namespace functionofpolynom
                     
                     if (t != i)
                     {
-                        if (xWerten[t] != xWerten[i] && xWerten[t]!=0 && xWerten[i]!=0)
+                        if (xWerten[t] != xWerten[i] )
                         { XiminusandereX *= xWerten[i] - xWerten[t]; }
                         else
                         {
