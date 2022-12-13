@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Drawing;
+using Microsoft.VisualBasic;
+
+
 
 namespace functionofpolynom
 {
@@ -38,7 +42,7 @@ namespace functionofpolynom
 
         double[] ydasch;
         double[] collectYdasch;
-        double[] tempoY;
+       
         public void Newtonintepolation(double [] xWerten, double []yWerten)
         {
             
@@ -55,12 +59,14 @@ namespace functionofpolynom
                     if (yWerten[j + 1]!= yWerten[j] && xWerten[k]!= xWerten[j])
                     {
                         ydasch[j] = ((yWerten[j + 1] - yWerten[j]) / (xWerten[k] - xWerten[j]));
-                        j++;
+                       
                     }
                     else
                     {
                         // hier soll hermit kommen 
+                       // ydasch[j] = ableitugn / Fakultät(Ableitungsordnung)
                     }
+                    j++;
                 }
                 if (t < xWerten.Length-1)
                 {
@@ -133,6 +139,26 @@ namespace functionofpolynom
             string res = "P(X) = " + result;
 
             return res;
+        }
+
+
+
+        //hermit 
+        public int  bringABleitungvomBenutzer()
+        {
+            string text = Interaction.InputBox("","");
+            return 0;
+        }
+
+        // fukulität
+        public int Fakultät(int number)
+        {
+            int result = 1;
+            for (int i = 1; i <= number; i++)
+            {
+                result *= i;
+            }
+            return result;
         }
 
     }

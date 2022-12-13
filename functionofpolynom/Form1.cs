@@ -48,6 +48,7 @@ namespace functionofpolynom
         {
             try
             {
+               
                 double[] XWerten = new double[AnzalderWerten];
                 double[] YWerten = new double[AnzalderWerten];
                 int i = 0;
@@ -63,10 +64,9 @@ namespace functionofpolynom
                 rechnen.addthelengthforlastarray(AnzalderWerten);
                 rechnen.LagrangeMethode(XWerten, YWerten);
                 richTextBoxPolynoem.Text = rechnen.erg();
+              
 
 
-               
-                
 
             }
             catch (Exception)
@@ -110,5 +110,7 @@ namespace functionofpolynom
                 richTextBoxPolynoem.Text = "bitte nur nummer eingeben, und keine wiederholten werten bei X!";
             }
         }
+
+
     }
 }
